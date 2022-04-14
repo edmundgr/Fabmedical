@@ -4,6 +4,9 @@ const path = require('path');
 const request = require('request');
 
 const app = express();
+const appInsights = require("applicationinsights");
+appInsights.setup("f28a38cb-2de0-4b03-b33b-16a05d7f18d8");
+appInsights.start();
 
 app.use(express.static(path.join(__dirname, 'dist/content-web')));
 const contentApiUrl = process.env.CONTENT_API_URL || "http://localhost:3001";
